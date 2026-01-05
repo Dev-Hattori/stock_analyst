@@ -108,5 +108,8 @@ print(response)
 | `get_key_metrics_info` | Retrieves P/E Ratio, Market Cap, Dividend Yield, etc. | `yfinance` |
 | `get_ticker_news_sentiment` | Fetches top 10 news articles and sentiment scores. | `Alpha Vantage` |
 
+## 📸 Frontend Demo
+![Streamlit Frontend Interface](image.png)
+
 ## 🤝 Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
