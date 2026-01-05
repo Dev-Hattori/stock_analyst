@@ -53,7 +53,7 @@ ollama pull gemma3:1b
 ```
 ### 3. Installation
 ```Bash:
-git clone <your-repo-url>
+git clone https://github.com/Dev-Hattori/stock_analyst.git
 cd stock-fundamentals-analyst
 pip install -r requirements.txt
 ```
