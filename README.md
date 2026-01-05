@@ -75,7 +75,7 @@ streamlit run app.py
 ```
 - **URL:** `http://localhost:8501`
 - **Capabilities:** Ask about profitability, P/E ratios, or compare companies (e.g., "Compare MSFT and GOOGL").
--
+
 ### Option B: Use the Backend with Other Models
 You can import the `financial_analyst` class and use it with **OpenAI, Anthropic**, or any other LangChain chat model.
 ```Python:
