@@ -33,6 +33,7 @@ This project demonstrates a modular **Agentic Architecture**:
 ├── .env                    # API keys and configuration
 ├── experimentation.ipynb   # R&D and testing playground
 └── example.ipynb           # Examples of using the backend with different configurations
+```
 
 ## ⚙️ Setup & Installation
 ### 1. Prerequisites
