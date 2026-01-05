@@ -64,7 +64,7 @@ Create a `.env` file in the root directory:
 alpha_vantage_api_key="YOUR_ALPHA_VANTAGE_KEY"
 LANGCHAIN_TRACING_V2="true"
 LANGCHAIN_API_KEY="YOUR_LANGSMITH_KEY"
-LANGCHAIN_PROJECT="Stock Fundamentals_Analyzer"
+LANGCHAIN_PROJECT="Stock_Fundamentals_Analyzer"
 ```
 ## 🖥️ Usage
 
