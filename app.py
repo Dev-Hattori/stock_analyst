@@ -4,6 +4,8 @@ from langchain.agents.middleware import SummarizationMiddleware
 
 import streamlit as st
 import uuid
+from itertools import chain
+
 from agent_backend import financial_analyst
 from tools import get_income_statement, get_balance_sheet, get_cash_flows, \
     get_key_metrics_info, get_company_summary, get_ticker_news_sentiment
@@ -118,21 +120,20 @@ if user_input:
         st.markdown(user_input)
 
     # Get response from the agent
+    agent_output = st.session_state.app.analyze_stream(
+        user_input, thread_id=st.session_state.thread_id)
+    first_token = ""
     with st.spinner("Analyzing fundamentals..."):
-        agent_output = st.session_state.app.analyze(
-            user_input, thread_id=st.session_state.thread_id)
-    # Extract the final answer content
-    if agent_output and isinstance(agent_output, dict) and 'messages' in agent_output:
-        # The final answer is usually the content of the last message
-        final_response_content = agent_output['messages'][-1].content
-    elif isinstance(agent_output, str):
-        # If it returns a simple string output
-        final_response_content = agent_output
-    else:
-        final_response_content = "Sorry, I couldn't parse the analyst's final response."
+        try:
+            first_token = next(agent_output)
+        except StopIteration:
+            st.warning("The agent did not return any response.")
+
+    output_stream = chain([first_token], agent_output)
 
     # Display agent response and add to history
+    final_response_content = ""
     with st.chat_message("assistant"):
-        st.markdown(final_response_content)
+        final_response_content = st.write_stream(output_stream)
     st.session_state.messages.append(
         {"role": "assistant", "content": final_response_content})
